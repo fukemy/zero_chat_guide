@@ -1,18 +1,12 @@
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
 import {
-    AppBar,
-    Box,
     CssBaseline,
-    IconButton,
     ThemeProvider,
-    Toolbar,
-    Typography,
     createTheme,
     useMediaQuery
 } from "@mui/material";
 import { useCallback, useMemo, useState } from "react";
 import Home from "./Home";
+import ThemeContext from "./context/ThemeContext";
 
 export default function App() {
     const systemSettingsPrefersDarkMode = useMediaQuery(
@@ -39,16 +33,9 @@ export default function App() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <IconButton onClick={togglePaletteMode} color="inherit">
-                {theme.palette.mode === "dark" ? (
-                    <Brightness7Icon />
-                ) : (
-                    <Brightness4Icon />
-                )}
-            </IconButton>
-            <div>
+            <ThemeContext.Provider value={{ theme, togglePaletteMode }}>
                 <Home />
-            </div>
+            </ThemeContext.Provider>
         </ThemeProvider>
     );
 }
