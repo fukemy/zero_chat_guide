@@ -6,13 +6,26 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import ResponsiveAppBar from './Home';
-import { Backdrop, CircularProgress } from '@mui/material';
 import App from './App';
+import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import ErrorPage from './pages/ErrorPage';
+import "@cyntler/react-doc-viewer/dist/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+]);
+
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <RouterProvider router={router} /> */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 )
