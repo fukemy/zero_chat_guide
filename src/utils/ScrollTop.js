@@ -15,7 +15,7 @@ function ScrollTop(props) {
 
     const handleClick = (event) => {
         const anchor = (event.target.ownerDocument || document).querySelector(
-            '#appbar',
+            '#back-to-top-anchor',
         );
 
         if (anchor) {

@@ -9,7 +9,6 @@ import '@fontsource/roboto/700.css';
 import App from './App';
 import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import ErrorPage from './pages/ErrorPage';
-import "@cyntler/react-doc-viewer/dist/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,9 +22,6 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
